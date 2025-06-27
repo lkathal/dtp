@@ -45,6 +45,9 @@ export const Header: React.FC = () => {
               <Link to="/categories" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                 Categories
               </Link>
+              <Link to="/contact" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                Contact
+              </Link>
               {user && (
                 <Link to="/dashboard" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   Dashboard
@@ -138,6 +141,13 @@ export const Header: React.FC = () => {
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Categories
+                </Link>
+                <Link 
+                  to="/contact" 
+                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Contact
                 </Link>
                 {user && (
                   <Link 

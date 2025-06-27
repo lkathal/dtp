@@ -12,6 +12,7 @@ import { Home } from './components/pages/Home';
 import { Categories } from './components/pages/Categories';
 import { Dashboard } from './components/pages/Dashboard';
 import { ToolPage } from './components/pages/ToolPage';
+import { Contact } from './components/pages/Contact';
 import { requestForToken, setupMessageListener } from './config/firebase';
 
 // Component to debug routing
@@ -58,6 +59,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/categories" element={<Categories />} />
                 <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/contact" element={<Contact />} />
                 <Route path="/tool/:toolId" element={<ToolPage />} />
                 {/* Add a catch-all route for debugging */}
                 <Route path="*" element={

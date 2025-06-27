@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, MessageSquare, Github, Twitter, Send, MapPin, Clock, Phone, CheckCircle } from 'lucide-react';
 
-export default function Contact() {
+export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,7 +12,7 @@ export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState('');
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -20,7 +20,9 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
     // Validate required fields
     if (!formData.name || !formData.email || !formData.subject || !formData.message) {
       setSubmitError('Please fill in all required fields.');
@@ -174,7 +176,7 @@ export default function Contact() {
                 Send us a Message
               </h2>
               
-              <div className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -265,8 +267,8 @@ export default function Contact() {
                       <span>Send Message</span>
                     </>
                   )}
-                </div>
-              </div>
+                </button>
+              </form>
             </div>
           </div>
 
@@ -344,4 +346,4 @@ export default function Contact() {
       </div>
     </div>
   );
-}
+};
